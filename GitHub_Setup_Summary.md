@@ -7,7 +7,7 @@ Everything is already correct. Just ensure every command or path uses lowercase 
 
 ## 1. Run your multi-repo updater
 ```bash
-~/Applications_Uncontained/GitHubRepos/code/github_allreposupdate.sh
+~/Applications_Uncontained/GitHubRepos/github_multiupdate.sh
 ```
 
 ---
@@ -58,13 +58,3 @@ Dan Large <gitpublic@danlarge.net> | Dan Large <gitpublic@danlarge.net>
 ✅ **History:** rewritten and pushed  
 
 You can now use the save script anytime to back up new scripts to your GitHub repo with one line.
-
-
-### 1a. Updater behavior (amended)
-- Automatically discovers the correct branch without a prior fetch:
-  - Uses `git ls-remote --symref origin HEAD` to read the remote’s default branch.
-  - Falls back only to branches that actually exist on the remote (`main`, then `master`).
-- Clearer skip messages:
-  - `origin has no branch '<branch>'` when the guessed branch doesn’t exist remotely.
-  - `fetch error for origin/<branch> (...)` with a short diagnostic if the fetch fails.
-- Repos without an `origin` remote are still skipped as before.
